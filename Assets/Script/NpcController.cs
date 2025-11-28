@@ -10,7 +10,8 @@ public class NpcController : MonoBehaviour
     public Animator ani;
 
     [Header("Timer Settings")]
-    [SerializeField] private float runTime = 5f; // Thời gian chạy (giây)
+    [SerializeField] private float runTime = 5f; 
+    public bool isUITrigger = false;
     
     private Coroutine idleCoroutine;
     private bool isRunning = false;
@@ -32,6 +33,10 @@ public class NpcController : MonoBehaviour
     private IEnumerator ReturnToIdleAfterTime()
     {
         yield return new WaitForSeconds(runTime);
+        if(isUITrigger)
+        {
+            GameManage.Instance.SetActiveByIndex(24);
+        }
         
         ReturnToIdle();
     }

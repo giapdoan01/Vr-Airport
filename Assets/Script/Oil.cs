@@ -33,7 +33,9 @@ public class Oil : MonoBehaviour
         if (sprayTime >= timeToChange)
         {
             ChangeToPowderMaterial();
+            GameManage.Instance.SetActiveByIndex(17);
         }
+        
     }
 
     private void ChangeToPowderMaterial()

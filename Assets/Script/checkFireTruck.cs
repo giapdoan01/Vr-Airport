@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class checkElectricRope : MonoBehaviour
+public class checkFireTruck : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -9,9 +9,9 @@ public class checkElectricRope : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("ElectricRope"))
+        if (other.gameObject.CompareTag("truck"))
         {
-            GameManage.Instance.SetActiveByIndex(19);
+            GameManage.Instance.SetActiveByIndex(24);
 
         }
     }
@@ -22,3 +22,4 @@ public class checkElectricRope : MonoBehaviour
         
     }
 }
+

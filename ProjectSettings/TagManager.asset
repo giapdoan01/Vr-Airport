@@ -11,6 +11,8 @@ TagManager:
   - Barrier
   - FxTemporaire
   - ElectricRope
+  - fueltruck
+  - truck
   layers:
   - Default
   - TransparentFX
