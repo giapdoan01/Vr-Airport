@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class checkElectricRope : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private AudioClip audioClipTrue;
+    [SerializeField] private AudioClip audioClipFalse;
+    [SerializeField] private AudioSource audioSource;
     void Start()
     {
         
@@ -11,8 +13,16 @@ public class checkElectricRope : MonoBehaviour
     {
         if (other.gameObject.CompareTag("ElectricRope"))
         {
-            GameManage.Instance.SetActiveByIndex(19);
-
+            if (GameManage.Instance.isMore4m2)
+            {
+                GameManage.Instance.SetActiveByIndex(19);
+                audioSource.PlayOneShot(audioClipTrue);
+            }
+            else
+            {
+                GameManage.Instance.SetActiveByIndex(26);
+                audioSource.PlayOneShot(audioClipFalse);
+            }
         }
     }
 

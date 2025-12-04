@@ -1,7 +1,9 @@
 using UnityEngine;
 
 public class FireExtinguisherCheck : MonoBehaviour
-{
+{  
+    [SerializeField] private AudioClip soundUI;
+    [SerializeField] private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,7 +14,7 @@ public class FireExtinguisherCheck : MonoBehaviour
         if (other.gameObject.CompareTag("Binhcuuhoa"))
         {
             GameManage.Instance.SetActiveByIndex(13);
-
+            audioSource.PlayOneShot(soundUI);
         }
     }
 

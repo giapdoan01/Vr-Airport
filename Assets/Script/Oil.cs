@@ -8,6 +8,9 @@ public class Oil : MonoBehaviour
     
     [Header("Spray Settings")]
     [SerializeField] private float timeToChange = 3f; // 3 giây
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip soundUI;
+    [SerializeField] private AudioSource audioSource;
     
     private Renderer objectRenderer;
     private float sprayTime = 0f;
@@ -34,6 +37,7 @@ public class Oil : MonoBehaviour
         {
             ChangeToPowderMaterial();
             GameManage.Instance.SetActiveByIndex(17);
+            audioSource.PlayOneShot(soundUI);
         }
         
     }

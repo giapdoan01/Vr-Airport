@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class checkFireTruck : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private AudioClip soundUI;
+    [SerializeField] private AudioSource audioSource;
     void Start()
     {
         
@@ -12,6 +13,7 @@ public class checkFireTruck : MonoBehaviour
         if (other.gameObject.CompareTag("truck"))
         {
             GameManage.Instance.SetActiveByIndex(24);
+            audioSource.PlayOneShot(soundUI);
 
         }
     }

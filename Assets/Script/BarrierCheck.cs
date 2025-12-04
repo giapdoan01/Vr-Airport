@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class BarrierCheck : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private AudioClip soundUITrue;
+    [SerializeField] private AudioClip soundUIFalse;
+    [SerializeField] private AudioSource audioSource;
+    
     void Start()
     {
         
@@ -12,7 +15,17 @@ public class BarrierCheck : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Barrier"))
         {
-            GameManage.Instance.SetActiveByIndex(15);
+            if (GameManage.Instance.isMore4m2)
+            {
+                GameManage.Instance.SetActiveByIndex(15);
+                audioSource.PlayOneShot(soundUITrue);
+            }
+            else
+            {
+                GameManage.Instance.SetActiveByIndex(25);
+                audioSource.PlayOneShot(soundUIFalse);
+            }
+            
 
         }
     }

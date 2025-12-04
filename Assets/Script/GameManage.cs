@@ -9,6 +9,7 @@ public class GameManage : MonoBehaviour
     public bool[] actions;         // Mảng hành động, chỉ 1 cái là true
     public AudioSource UiSound;
     public AudioSource EffectSound;
+    public bool isMore4m2 = false;
 
     private void Awake()
     {

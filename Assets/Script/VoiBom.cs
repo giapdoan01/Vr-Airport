@@ -6,6 +6,11 @@ public class VoiBom : MonoBehaviour
     private bool hasGrabbed = false;
     public GameObject Checkponit;
     public AudioClip soundui5;
+    private Transform originalParent;
+    void Awake()
+    {
+        originalParent = transform.parent;
+    }
     private void OnEnable()
     {
         // Đăng ký sự kiện grab
@@ -23,6 +28,10 @@ public class VoiBom : MonoBehaviour
         if (!hasGrabbed)
         {
             hasGrabbed = true;
+            if(transform.parent != originalParent)
+            {
+                transform.SetParent(originalParent);
+            }
             DoOnce();
         }
     }
